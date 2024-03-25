@@ -45,4 +45,7 @@ jobs:
       - name: Terraform Format
         run: terraform fmt -check
 #        working-directory: ./Terraform
+      - name: Terraform Plan
+        run: terraform plan -backend-config="./dev-config.azurerm.tfbackend" 
+#        working-directory: ./Terraform  
 
