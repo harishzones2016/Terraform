@@ -1,0 +1,34 @@
+name: Terraform Plan
+
+#on:
+#  pull_request:
+#    branches: [ main ]
+on:
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
+  workflow_dispatch:    
+
+jobs:
+  terraform:
+    runs-on: harish-vm
+
+    env:
+      ARM_CLIENT_ID: "60541093-1fa2-43f9-bf14-142afb92cd9a"
+      ARM_CLIENT_SECRET: ${{secrets.ARM_CLIENT_SECRET}}
+      ARM_SUBSCRIPTION_ID: "963c5327-4019-4ea8-ba9f-78712121919c"
+      ARM_TENANT_ID: "08e68cec-d41a-407a-b145-5a82bb4fcd6a"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        run: terraform init  -backend-config="dev-config.azurerm.tfbackend"
+
+      - name: Terraform Format
+        run: terraform fmt -check
+
