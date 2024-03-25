@@ -32,6 +32,11 @@ jobs:
 
 
       - name: Terraform Init
+        env:
+          ARM_CLIENT_ID: "60541093-1fa2-43f9-bf14-142afb92cd9a"
+          ARM_CLIENT_SECRET: ${{secrets.ARM_CLIENT_SECRET}}
+          ARM_SUBSCRIPTION_ID: "963c5327-4019-4ea8-ba9f-78712121919c"
+          ARM_TENANT_ID: "08e68cec-d41a-407a-b145-5a82bb4fcd6a"
         run: terraform init  -backend-config="./dev-config.azurerm.tfbackend"
 #        working-directory: ./Terraform
 
