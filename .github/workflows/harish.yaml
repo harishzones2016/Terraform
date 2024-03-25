@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: maa-vm
+    runs-on: self-hosted
 
     env:
       ARM_CLIENT_ID: "60541093-1fa2-43f9-bf14-142afb92cd9a"
