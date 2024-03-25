@@ -1,0 +1,4 @@
+resource_group_name  = "linux-resources"
+storage_account_name = "harishsdemostorage"
+container_name       = "microservice"
+key                  = "merimaa.state"
